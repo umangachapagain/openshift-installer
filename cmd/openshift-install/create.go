@@ -226,7 +226,7 @@ func destroyBootstrap(ctx context.Context, config *rest.Config, directory string
 
 	events := client.CoreV1().Events("kube-system")
 
-	eventTimeout := 30 * time.Minute
+	eventTimeout := 60 * time.Minute
 	logrus.Infof("Waiting up to %v for the bootstrap-complete event...", eventTimeout)
 	eventContext, cancel := context.WithTimeout(ctx, eventTimeout)
 	defer cancel()
@@ -288,7 +288,7 @@ func waitForConsole(ctx context.Context, config *rest.Config, directory string) 
 		return "", errors.Wrap(err, "creating a route client")
 	}
 
-	consoleRouteTimeout := 10 * time.Minute
+	consoleRouteTimeout := 30 * time.Minute
 	logrus.Infof("Waiting up to %v for the openshift-console route to be created...", consoleRouteTimeout)
 	consoleRouteContext, cancel := context.WithTimeout(ctx, consoleRouteTimeout)
 	defer cancel()

@@ -67,7 +67,7 @@ func provider(clusterName string, platform *libvirt.Platform, userDataSecret str
 			APIVersion: "libvirtproviderconfig.k8s.io/v1alpha1",
 			Kind:       "LibvirtMachineProviderConfig",
 		},
-		DomainMemory: 2048,
+		DomainMemory: 16384,
 		DomainVcpu:   2,
 		Ignition: &libvirtprovider.Ignition{
 			UserDataSecret: userDataSecret,
