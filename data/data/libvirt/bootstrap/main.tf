@@ -11,7 +11,7 @@ resource "libvirt_ignition" "bootstrap" {
 resource "libvirt_domain" "bootstrap" {
   name = "${var.cluster_name}-bootstrap"
 
-  memory = "2048"
+  memory = "4096"
 
   vcpu = "2"
 
